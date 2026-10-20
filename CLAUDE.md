@@ -14,6 +14,7 @@
 - `docs/prompt-optimization-spec-v1.md` - 需求定稿（R1–R3）
 - `docs/research/` - 三轮调研留档（round2 市场分层 / round3 论文与 L0 设计 / README 摘档）
 - `seedify-skill-cowork.zip` - Cowork 应用内上传包（SKILL.md+references 三文件）
+- GitHub 远程：https://github.com/RMSHE-MSH/Seedify（公开仓库，`origin/main`；本地改动后 `git push` 同步，本机需走代理 127.0.0.1:7890）
 
 ## 七项用户裁定（违反即 bug）
 
