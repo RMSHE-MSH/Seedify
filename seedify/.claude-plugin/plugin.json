@@ -1,0 +1,9 @@
+{
+  "name": "seedify",
+  "version": "0.1.0",
+  "description": "把语音转写的口语输入保真整理并生成种子提示词：有疑必问、只交提示词。从嘈杂的语音转写输入制作种子提示词。",
+  "author": {
+    "name": "RMSHE"
+  },
+  "keywords": ["prompt", "seed", "voice-input", "chinese", "prompt-optimization"]
+}

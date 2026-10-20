@@ -1,0 +1,7 @@
+# 会话工具运行痕迹，不入库
+.remember/
+
+# 系统杂项
+Thumbs.db
+.DS_Store
+desktop.ini
