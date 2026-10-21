@@ -13,7 +13,7 @@
 - `docs/seedify-design-v1.md` - 设计文档 v6（组件规划表 + 裁定记录）
 - `docs/prompt-optimization-spec-v1.md` - 需求定稿（R1–R3）
 - `docs/seedify-mod-design-v1.md` - 模块化设计 v2（生成族 M1–M5 + 读取族 M6/M7，已审定）
-- `docs/superpowers/plans/2026-10-21-seedify-v0.2-mods.md` - v0.2 建造实施计划（七模块改造，Task 1–11）
+- `docs/superpowers/plans/2026-10-21-seedify-v0.2-mods.md` - v0.2 建造实施计划（七模块改造，Task 1–12）
 - `docs/research/` - 三轮调研留档（round2 市场分层 / round3 论文与 L0 设计 / README 摘档）
 - `seedify-skill-cowork.zip` - Cowork 应用内上传包（8 运行时技能的 SKILL.md+references；commands/agents 不随行）
 - GitHub 远程：https://github.com/RMSHE-MSH/Seedify（公开仓库，`origin/main`；本地改动后 `git push` 同步，本机需走代理 127.0.0.1:7890）
@@ -45,6 +45,7 @@
 - 安装布局：marketplace.json 在**项目根** `.claude-plugin/`，`source: ./seedify`；`claude plugin validate D:/AIGC/Seedify` 可体检
 - 安装命令：`claude plugin marketplace add "D:/AIGC/Seedify"` → `claude plugin install seedify@seedify -y`
 - Cowork 是独立体系（不读 ~/.claude），只能应用内上传 zip；commands/agents 不随行
+- **Windows autocrlf 换行符假象**：git 检出会给工作区副本套 CRLF，`sha256sum` 逐字节校验会误报双哈希（2026-10-22 合并后踩过）——先比 blob（`git show HEAD:<path> | sha256sum`）或 `tr -d '\r'` 后再比；内容一致即合规
 
 ## 验证基线（改动后回归）
 
@@ -59,5 +60,7 @@
 - /seed-check 体检范围（**已拍板 2026-10-21**）：保持=任意提示词，不收窄；体检员口径随 v0.2 mod 化最小更新（脚手架段合法化，越界仍旗标）。**10-21 晚增裁**：/seed-check 升级为 M7 提示词检查（分项通过+合格判定+纪律符合度总结分，评分只度量纲领纪律符合度、不预测效果、不作门槛）；新增 M6 提示词分析（意图解读，输入任意表达/现成提示词）；链内不自动质检（T19 不动）——详见 mod 设计文档 §3.1；
 - 实装真实语音输入试用，按使用反馈迭代（skill-development Step 6）；
 - 分发时补 license/LICENSE（版本号双处已同步 0.2.0：plugin.json 与 8 个 SKILL.md）；
-- **v0.2 建造状态（2026-10-21）**：七模块 + 编排器 + 8 命令全部建成并通过任务级审阅；README 重写、cowork 包重打包、validate 过——发布工程完成（marketplace.json 插件列表描述已同步 v0.2 口径）。
-- **发布门禁（v0.2.0）**：桌面已登录环境新会话人工补测三点——错字触发（如「帮我优化提词」）真实路由到全链路、/seed-check 真实派发 seed-reviewer、/seed-analyze 实跑；跳过=发布带未验证交互面。
+- **v0.2.0 已落地（2026-10-22）**：12 任务全部建成并过任务级审阅＋全分支终审闭环（With fixes→修复波全过），已合并推送 `origin/main`（9dd2ac8）；意外修复 v0.1 遗留缺陷——打包 charter 脱漏总纲规则 5「步骤、」；
+- **发布门禁（v0.2.0）**：桌面已登录环境新会话人工补测三点——错字触发（如「帮我优化提词」）真实路由到全链路、/seed-check 真实派发 seed-reviewer、/seed-analyze 实跑；跳过=发布带未验证交互面；
+- 顺手修（终审分流的措辞级 Minor，下次触碰带上）：seed-gen「问清后重写」改「删除即愈则删、存疑才问」、seed-analyze「未解歧义不解自断」→「不自行决断」、「不写实施方法」→「不自行编写实施方法」、seed-assemble「置首尾」加「骨架顺序照抄不重排」消歧、mod 设计 §5.2 命令表补 M6 勘误；
+- 发布说明要点：桌面 `anthropic-skills:seedify` 旧镜像可能劫持触发短语（先 reapply/清镜像再试）；`/seed` 语义收窄（纯种子生成）在发布说明再提一次。
