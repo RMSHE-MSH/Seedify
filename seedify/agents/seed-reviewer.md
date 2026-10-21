@@ -29,7 +29,7 @@ tools: ["Read"]
 
 ## 运行步骤
 
-1. 读取 `${CLAUDE_PLUGIN_ROOT}/skills/seedify/references/charter.md`（思想纲领），以纲领为唯一评判依据。若变量未解析，用 Glob 在插件目录内定位 `skills/seedify/references/charter.md`。
+1. 读取 `${CLAUDE_PLUGIN_ROOT}/skills/seedify/references/charter.md`（思想纲领），以纲领为唯一评判依据。若变量未解析，用 Read 依次尝试插件内相对候选路径（如 `skills/seedify/references/charter.md`、`../seedify/references/charter.md`）；仍找不到则向调用方索要 charter 路径。
 2. 通读送检提示词**全文逐段**覆盖。若调用方附有用户的原始意图描述，一并对照；未附则不做揣测——可回指项记「不适用」，臆造目只查送检文本自身可证的无据添补。
 3. 按下述体检项逐项核查；每条发现给出送检文本证据（位置/原文片段），引不出证据的不写入报告——不臆造发现。
 4. 按输出格式出具体检报告。

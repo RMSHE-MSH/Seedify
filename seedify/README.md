@@ -21,13 +21,13 @@
 **Claude Code**（一步安装，2.1.275+）：
 
 ```
-/plugin install seedify --marketplace D:/AIGC/Seedify
+/plugin install seedify --marketplace <本仓库克隆路径>
 ```
 
 或命令行等价：
 
 ```bash
-claude plugin marketplace add D:/AIGC/Seedify
+claude plugin marketplace add <本仓库克隆路径>
 claude plugin install seedify@seedify
 ```
 

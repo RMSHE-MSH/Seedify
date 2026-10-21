@@ -52,7 +52,7 @@
 - agents/commands/skills 的 frontmatter 严格 YAML 解析过；
 - 行为验收 T1–T27（清单在 `seedify/skills/seedify/references/anti-patterns.md`，开发期资产；四列 T编号|输入特征|通过标准|归属模块，原「测什么」标签列已移除，编号↔行为名对照）：T1 禁增生、T2 零丢失、T3 改口、T4 宁问不猜、T5 输出纯净、T6 缺项必问、T7 触发容错（语音错字变体）、T8 交付即止、T9 转写纠错、T10 无长诊断、T11 可回指、T12 自然生成、T13 提问充分（不限轮次）、T14 装配缺料整段省略、T15 来源/把握度不进交付、T16 用户流程只体检不写死、T17 候选方向不直接入稿、T18 单模块不夹带、T19 全链路交付纯净、T20 脚手架合法段不误报、T21 偏好槽不装步骤、T22 解读可回指不改写、T23 评分红线（只量纪律符合度/不预测效果/不作门槛）、T24 不因详细/结构/示例加分、T25 意图理解产物不进交付、T26 交付不自动质检、T27 分析与检查互不越界；
 - 体检类：/seed-check 对病灶提示词逐项指出，对干净提示词明确"未发现病灶"且不改写；v0.2 增合格判定与纪律符合度总结分（脚手架段合法化，越界仍旗标）；
-- 发布核验：版本双处一致（plugin.json 与 8 个 SKILL.md 均 0.2.0）；`sha256sum seedify/skills/*/references/charter.md` 全一致；可分发文件无本机绝对路径。
+- 发布核验：版本双处一致（plugin.json 与 8 个 SKILL.md 均 0.2.0）；`sha256sum seedify/skills/*/references/charter.md` 全一致；可分发文件无本机绝对路径——`grep -rnE "[A-Za-z]:[/\\]" seedify/` 零命中（`${CLAUDE_PLUGIN_ROOT}` 不含盘符，天然不命中）。
 
 ## 待裁决 / 待办
 
@@ -60,3 +60,4 @@
 - 实装真实语音输入试用，按使用反馈迭代（skill-development Step 6）；
 - 分发时补 license/LICENSE（版本号双处已同步 0.2.0：plugin.json 与 8 个 SKILL.md）；
 - **v0.2 建造状态（2026-10-21）**：七模块 + 编排器 + 8 命令全部建成并通过任务级审阅；README 重写、cowork 包重打包、validate 过——发布工程完成（marketplace.json 插件列表描述已同步 v0.2 口径）。
+- **发布门禁（v0.2.0）**：桌面已登录环境新会话人工补测三点——错字触发（如「帮我优化提词」）真实路由到全链路、/seed-check 真实派发 seed-reviewer、/seed-analyze 实跑；跳过=发布带未验证交互面。
