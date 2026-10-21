@@ -12,6 +12,7 @@
 - `docs/prompt-optimization-charter.md` - 总纲 v4（最高指导，原文入包于 skills/seedify/references/charter.md）
 - `docs/seedify-design-v1.md` - 设计文档 v6（组件规划表 + 裁定记录）
 - `docs/prompt-optimization-spec-v1.md` - 需求定稿（R1–R3）
+- `docs/seedify-mod-design-v1.md` - 模块化设计 v2（生成族 M1–M5 + 读取族 M6/M7，待审）
 - `docs/research/` - 三轮调研留档（round2 市场分层 / round3 论文与 L0 设计 / README 摘档）
 - `seedify-skill-cowork.zip` - Cowork 应用内上传包（SKILL.md+references 三文件）
 - GitHub 远程：https://github.com/RMSHE-MSH/Seedify（公开仓库，`origin/main`；本地改动后 `git push` 同步，本机需走代理 127.0.0.1:7890）
@@ -53,6 +54,6 @@
 
 ## 待裁决 / 待办
 
-- /seed-check 体检范围：目前=任意提示词（按总纲"第二步(Agent提示词工程/提示词优化)"）；用户未最终拍板是否收窄到仅 seedify 产出；
+- /seed-check 体检范围（**已拍板 2026-10-21**）：保持=任意提示词，不收窄；体检员口径随 v0.2 mod 化最小更新（脚手架段合法化，越界仍旗标）。**10-21 晚增裁**：/seed-check 升级为 M7 提示词检查（分项通过+合格判定+纪律符合度总结分，评分只度量纲领纪律符合度、不预测效果、不作门槛）；新增 M6 提示词分析（意图解读，输入任意表达/现成提示词）；链内不自动质检（T19 不动）——详见 mod 设计文档 §3.1；
 - 实装真实语音输入试用，按使用反馈迭代（skill-development Step 6）；
 - 分发时补 license/LICENSE、版本号双处同步（plugin.json 与 SKILL.md）。
