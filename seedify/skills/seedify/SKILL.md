@@ -48,4 +48,4 @@ allowed-tools: Read, Task, Agent
 
 - **`references/charter.md`** —— 思想纲领（总纲原文），**每次运行先读**。
 - **`references/anti-patterns.md`** —— 开发期测试清单，仅供开发维护使用，运行时不必读。
-- **同级模块** —— `../seed-express/`、`../seed-analyze/`、`../seed-clarify/`、`../seed-gen/`、`../seed-tools/`、`../seed-assemble/`、`../seed-check/` 各自的 SKILL.md 与 references/，环节契约以此为准。
+- **同级模块** —— `../seed-express/`、`../seed-analyze/`、`../grilling/`、`../domain-modeling/`、`../to-spec/`、`../seed-clarify/`、`../seed-gen/`、`../seed-tools/`、`../seed-assemble/`、`../seed-check/` 各自的 SKILL.md 与 references/，环节契约以此为准。
