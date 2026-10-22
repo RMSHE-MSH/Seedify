@@ -15,6 +15,8 @@ allowed-tools: Read
 
 This skill takes what the 追问席 has already extracted and produces a 提示词构建方案. Do NOT interview the user; just synthesize what you already know. 不再访谈，只综合已知。
 
+综合已知后仍有缺口：最多补问一轮，不得重启访谈；缺口随方案列出待用户补答。
+
 The 方案 is presented in conversation and handed to the 批准门 for review.
 
 ## Process

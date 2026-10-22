@@ -1,5 +1,5 @@
 ---
-description: 种子化全链路入口——七模块串链，把嘈杂口语输入整理成种子提示词
+description: 种子化全链路入口——七模块与两席串链，把嘈杂口语输入整理成种子提示词
 argument-hint: <要优化的原始文本>
 allowed-tools: Read, Task, Agent
 ---

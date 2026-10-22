@@ -1,5 +1,5 @@
 ---
-description: 需求澄清直通入口——通过追问、头脑风暴与流程体检把含糊需求捋清楚
+description: 需求澄清直通入口——追问与方案两席把含糊需求捋清楚，流程体检兜入追问
 argument-hint: <整理后的表达或现状描述>
 allowed-tools: Read, Task, Agent
 ---
