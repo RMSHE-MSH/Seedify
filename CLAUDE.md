@@ -14,7 +14,7 @@
 - `docs/prompt-optimization-spec-v1.md` - 需求定稿（R1–R3）
 - `docs/seedify-mod-design-v1.md` - 模块化设计 v2（生成族 M1–M5 + 读取族 M6/M7，已审定）
 - `docs/superpowers/plans/2026-10-21-seedify-v0.2-mods.md` - v0.2 建造实施计划（七模块改造，Task 1–12）
-- `docs/research/` - 三轮调研留档（round2 市场分层 / round3 论文与 L0 设计 / README 摘档）
+- `docs/research/` - 调研留档（round2 市场分层 / round3 论文与 L0 设计 / README 摘档；**round4** = `README-mattpocock-skills.md` mattpocock/skills 研究报告 2026-10-22，**长期保留**——含技能全景、调用二分法、grilling 原语、writing-for-agents 元理论、对 Seedify 裁定的独立印证与 13 条可借鉴清单；**round5** = `README-superpowers.md` obra/superpowers 研究报告 2026-10-22，**长期保留**——含强制方法论架构、writing-skills 的 TDD 化技能写作与 Match-the-Form 形态学、brainstorming v7 对照、12 条可借鉴清单与三杠杆五问增量影响；本地全量克隆 `D:/AIGC/research/mattpocock-skills`、`D:/AIGC/research/superpowers`）
 - `seedify-skill-cowork.zip` - Cowork 应用内上传包（8 运行时技能的 SKILL.md+references；commands/agents 不随行）
 - GitHub 远程：https://github.com/RMSHE-MSH/Seedify（公开仓库，`origin/main`；本地改动后 `git push` 同步，本机需走代理 127.0.0.1:7890）
 
@@ -53,14 +53,15 @@
 - agents/commands/skills 的 frontmatter 严格 YAML 解析过；
 - 行为验收 T1–T27（清单在 `seedify/skills/seedify/references/anti-patterns.md`，开发期资产；四列 T编号|输入特征|通过标准|归属模块，原「测什么」标签列已移除，编号↔行为名对照）：T1 禁增生、T2 零丢失、T3 改口、T4 宁问不猜、T5 输出纯净、T6 缺项必问、T7 触发容错（语音错字变体）、T8 交付即止、T9 转写纠错、T10 无长诊断、T11 可回指、T12 自然生成、T13 提问充分（不限轮次）、T14 装配缺料整段省略、T15 来源/把握度不进交付、T16 用户流程只体检不写死、T17 候选方向不直接入稿、T18 单模块不夹带、T19 全链路交付纯净、T20 脚手架合法段不误报、T21 偏好槽不装步骤、T22 解读可回指不改写、T23 评分红线（只量纪律符合度/不预测效果/不作门槛）、T24 不因详细/结构/示例加分、T25 意图理解产物不进交付、T26 交付不自动质检、T27 分析与检查互不越界；
 - 体检类：/seed-check 对病灶提示词逐项指出，对干净提示词明确"未发现病灶"且不改写；v0.2 增合格判定与纪律符合度总结分（脚手架段合法化，越界仍旗标）；
-- 发布核验：版本双处一致（plugin.json 与 8 个 SKILL.md 均 0.2.0）；`sha256sum seedify/skills/*/references/charter.md` 全一致；可分发文件无本机绝对路径——`grep -rnE "[A-Za-z]:[/\\]" seedify/` 零命中（`${CLAUDE_PLUGIN_ROOT}` 不含盘符，天然不命中）。
+- 发布核验：版本双处一致（plugin.json 与 8 个 SKILL.md 均 0.2.1）；`sha256sum seedify/skills/*/references/charter.md` 全一致；可分发文件无本机绝对路径——`grep -rnE "[A-Za-z]:[/\\]" seedify/` 零命中（`${CLAUDE_PLUGIN_ROOT}` 不含盘符，天然不命中）。
 
 ## 待裁决 / 待办
 
 - /seed-check 体检范围（**已拍板 2026-10-21**）：保持=任意提示词，不收窄；体检员口径随 v0.2 mod 化最小更新（脚手架段合法化，越界仍旗标）。**10-21 晚增裁**：/seed-check 升级为 M7 提示词检查（分项通过+合格判定+纪律符合度总结分，评分只度量纲领纪律符合度、不预测效果、不作门槛）；新增 M6 提示词分析（意图解读，输入任意表达/现成提示词）；链内不自动质检（T19 不动）——详见 mod 设计文档 §3.1；
 - 实装真实语音输入试用，按使用反馈迭代（skill-development Step 6）；
-- 分发时补 license/LICENSE（版本号双处已同步 0.2.0：plugin.json 与 8 个 SKILL.md）；
+- 分发时补 license/LICENSE（版本号双处已同步 0.2.1：plugin.json 与 8 个 SKILL.md）；
 - **v0.2.0 已落地（2026-10-22）**：12 任务全部建成并过任务级审阅＋全分支终审闭环（With fixes→修复波全过），已合并推送 `origin/main`（9dd2ac8）；意外修复 v0.1 遗留缺陷——打包 charter 脱漏总纲规则 5「步骤、」；
 - **发布门禁（v0.2.0）**：桌面已登录环境新会话人工补测三点——错字触发（如「帮我优化提词」）真实路由到全链路、/seed-check 真实派发 seed-reviewer、/seed-analyze 实跑；跳过=发布带未验证交互面；
-- 顺手修（终审分流的措辞级 Minor，下次触碰带上）：seed-gen「问清后重写」改「删除即愈则删、存疑才问」、seed-analyze「未解歧义不解自断」→「不自行决断」、「不写实施方法」→「不自行编写实施方法」、seed-assemble「置首尾」加「骨架顺序照抄不重排」消歧、mod 设计 §5.2 命令表补 M6 勘误；
+- ~~顺手修~~（**已随 v0.2.1 措辞波落地 2026-10-22**）：seed-gen「删除即愈则删、存疑才问」、seed-analyze「不自行决断」「不自行编写实施方法」、seed-assemble「骨架顺序照抄不重排」、mod 设计 §5.2 /seedify 链补意图解读——均已完成；
+- **三杠杆吸收五问已拍板并落地（2026-10-22 晚，v0.2.1 措辞波）**：①M2 保守版——只加收敛条件「不限次数≠无收敛：每主题问到『再问只能靠猜』即收束」，一次一主题不动（superpowers 一问一消息佐证）；frontier 轮询/推荐答案/Play It Back/三堆分诊留 **M2 议题包** 待议。②「过程痕迹」铸词（=改动对照/依据/整理过程/总结，随文定义）。③「最保守」→「零添补」（seed-tools 处用「宁缺毋滥」）。④按 Match-the-Form 分形态：裁定硬护栏保留禁止+正向配对；形状规则改正向配方（seed-tools 交付版恰好四字段）；豁免从句重构为独立条件句（seed-gen 实施方法默认不写、用户要求时按要求写）；重复否定收敛为一处（T21、候选边界、最丰富解释）。⑤版本 0.2.1 双处已同步。不照搬：模板内嵌 example（违裁定#3）、issue-tracker 硬依赖（违零依赖方针）、Rulings-not-stalls 执行期不问人（违有疑必问）；
 - 发布说明要点：桌面 `anthropic-skills:seedify` 旧镜像可能劫持触发短语（先 reapply/清镜像再试）；`/seed` 语义收窄（纯种子生成）在发布说明再提一次。

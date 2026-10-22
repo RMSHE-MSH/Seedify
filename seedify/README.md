@@ -4,7 +4,7 @@
 
 提示词是种子，不是蓝图；优化是进化，不是润色。
 
-**当前版本 v0.2.0**：七模块（M1–M7）+ 编排器 + 8 条命令。
+**当前版本 v0.2.1**：七模块（M1–M7）+ 编排器 + 8 条命令。
 
 ## 它做什么
 
@@ -83,7 +83,7 @@ claude --plugin-dir <本目录路径>
 
 ```
 seedify/
-├── .claude-plugin/plugin.json        # 插件清单（v0.2.0）
+├── .claude-plugin/plugin.json        # 插件清单（v0.2.1）
 ├── commands/                          # 8 条命令薄封装（不重复技能逻辑）
 │   ├── seed-express.md                #   M1 表达整理直通
 │   ├── seed-clarify.md                #   M2 需求澄清直通
@@ -97,7 +97,7 @@ seedify/
 │   └── seed-reviewer.md               # M7 独立上下文执行体（只读，新上下文防自我美化）
 ├── skills/
 │   ├── seed-express/                  # 七个 mod 目录同构（M1–M7）：
-│   │   ├── SKILL.md                   #   运行契约（v0.2.0）
+│   │   ├── SKILL.md                   #   运行契约（v0.2.1）
 │   │   └── references/charter.md      #   总纲 v4 逐字节副本（运行时先读）
 │   ├── seed-clarify/  seed-gen/  seed-tools/
 │   ├── seed-assemble/ seed-analyze/ seed-check/
