@@ -2,7 +2,7 @@
 
 **用途**：开发维护资产——SKILL.md 改动后逐条实测的行为验收标准。运行时不必读取。
 **注意**：本清单只描述"输入特征 → 通过标准"，不包含任何输出范例（正例反例一律不进技能上下文）。
-**结构**：四列——T编号 | 输入特征 | 通过标准 | 归属模块。归属模块取值：M1 seed-express / M2 seed-clarify / M3 seed-gen / M4 seed-tools / M5 seed-assemble / M6 seed-analyze / M7 seed-check / 编排器 seedify / 命令 / 发布（可多归属，逗号分隔）。
+**结构**：四列——T编号 | 输入特征 | 通过标准 | 归属模块。归属模块取值：M1 seed-express / M2 seed-clarify / M3 seed-gen / M4 seed-tools / M5 seed-assemble / M6 seed-analyze / M7 seed-check / 追问席 grilling / 方案席 to-spec / 编排器 seedify / 命令 / 发布（可多归属，逗号分隔）。
 
 | T编号 | 输入特征 | 通过标准 | 归属模块 |
 |---|---|---|---|

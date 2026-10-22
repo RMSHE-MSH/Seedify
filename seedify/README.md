@@ -4,11 +4,13 @@
 
 提示词是种子，不是蓝图；优化是进化，不是润色。
 
-**当前版本 v0.2.1**：七模块（M1–M7）+ 编排器 + 8 条命令。
+**当前版本 v0.3.0**：七模块（M1–M7）+ 编排器 + 8 条命令。
 
 ## 它做什么
 
 **生成族 + 读取族两条能力轴**：生成族（M1 表达整理 → M2 需求澄清 → M3 种子生成 → M4 工具挑选 → M5 提示词装配）把带转写噪声的口语输入整理、问清、装配成一份可直接粘贴进新会话的结构化种子提示词；读取族（M6 提示词分析 / M7 提示词检查）对任意现成提示词做意图解读与纲领体检。
+
+**M2 两席内置**：需求澄清（M2）由两席内置件承载——追问席（`grilling` 引擎 + `grill-me`/`grill-with-docs` 入口壳 + `domain-modeling` 语境词典）与方案席（`to-spec`，追问共识综合成提示词构建方案）；`/seed-clarify` 是其薄壳入口。两席内置自 mattpocock/skills（MIT，Copyright (c) Matt Pocock），来源链接与改动声明见仓库根 `THIRD-PARTY-NOTICES.md`。
 
 两条轴共用一套纪律：
 
@@ -50,7 +52,7 @@ claude --plugin-dir <本目录路径>
 | 命令 | 层 | 用途 |
 |---|---|---|
 | `/seed-express <文本>` | M1 | 只优化表达 |
-| `/seed-clarify <主题或现状>` | M2 | 追问 / 头脑风暴 / 流程体检（按输入自动判断，可点名模式） |
+| `/seed-clarify <主题或现状>` | M2 | 薄壳串两席（追问席 grilling → 方案席 to-spec）：追问 / 头脑风暴 / 流程体检，谈透后综合成构建方案 |
 | `/seed <文本>` | M3 | 只生成种子提示词 |
 | `/seed-tools <需求>` | M4 | 只出工具推荐清单 |
 | `/seed-assemble [材料]` | M5 | 装配成最终提示词（无参则取本次对话已有的各环节产出） |
@@ -83,7 +85,7 @@ claude --plugin-dir <本目录路径>
 
 ```
 seedify/
-├── .claude-plugin/plugin.json        # 插件清单（v0.2.1）
+├── .claude-plugin/plugin.json        # 插件清单（v0.3.0）
 ├── commands/                          # 8 条命令薄封装（不重复技能逻辑）
 │   ├── seed-express.md                #   M1 表达整理直通
 │   ├── seed-clarify.md                #   M2 需求澄清直通
@@ -97,14 +99,16 @@ seedify/
 │   └── seed-reviewer.md               # M7 独立上下文执行体（只读，新上下文防自我美化）
 ├── skills/
 │   ├── seed-express/                  # 七个 mod 目录同构（M1–M7）：
-│   │   ├── SKILL.md                   #   运行契约（v0.2.1）
+│   │   ├── SKILL.md                   #   运行契约（v0.3.0）
 │   │   └── references/charter.md      #   总纲 v4 逐字节副本（运行时先读）
 │   ├── seed-clarify/  seed-gen/  seed-tools/
 │   ├── seed-assemble/ seed-analyze/ seed-check/
+│   ├── grilling/  grill-me/  grill-with-docs/  domain-modeling/  # M2 追问席（内置自 mattpocock/skills，MIT）
+│   ├── to-spec/                       # M2 方案席（内置自 mattpocock/skills，MIT）
 │   └── seedify/                       # 编排器：触发入口、边界判断、按需串链、交付即止
 │       └── references/
 │           ├── charter.md             # 思想纲领（总纲 v4 原文，单一事实源的入包副本）
-│           └── anti-patterns.md       # 开发期护栏 T1–T27（开发期资产，运行时不读）
+│           └── anti-patterns.md       # 开发期护栏 T1–T30（开发期资产，运行时不读）
 └── README.md
 ```
 
@@ -112,5 +116,5 @@ seedify/
 
 - 思想纲领（最高指导）：总纲 v4 原文入包于每个技能的 `references/charter.md`，运行前先读；单一事实源在插件目录之外的 `../docs/prompt-optimization-charter.md`（用户定稿，我方不得改动）。
 - 设计文档：`../docs/seedify-mod-design-v1.md`（模块化设计 v2，已审定）、`../docs/seedify-design-v1.md`（v6）——位于插件目录之外，不随插件分发。
-- 开发期护栏 T1–T27 清单在 `skills/seedify/references/anti-patterns.md`（开发期资产，运行时不读取）。
+- 开发期护栏 T1–T30 清单在 `skills/seedify/references/anti-patterns.md`（开发期资产，运行时不读取）。
 - 无外部依赖、无脚本，Hooks/MCP/Settings = 0；正例、反例一律不进技能上下文（触发短语与调用示例除外），避免少样本锚定。
